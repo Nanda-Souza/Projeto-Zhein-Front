@@ -6,6 +6,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}/>
+        {/* <Route path="/cadastro" element={}/>
+        <Route path="/home" element={}/>
+        <Route path="/:id_do_produto" element={}/>
+        <Route path="/pagamento" element={}/>
+        <Route path="/sucesso" element={}/> */}
       </Routes>
     </BrowserRouter>
   );
