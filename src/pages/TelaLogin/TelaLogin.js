@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-// import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo.png";
 import { Tela, Form } from "./StyleLogin";
 import { Container } from "../../components/container";
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <Container>
       <Tela>
-        {/* <img src={logo} alt="" /> */}
+        <img src={logo} alt="logo" />
         <Form>
           <input type="email" placeholder="E-mail" required value={email} onChange={(e) => setEmail(e.target.value)}/>
           <input type="password" placeholder="Senha" required value={senha} onChange={(e) => setSenha(e.target.value)}/>

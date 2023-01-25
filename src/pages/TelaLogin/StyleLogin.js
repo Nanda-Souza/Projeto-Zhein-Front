@@ -33,10 +33,10 @@ export const Tela = styled.div`
     cursor: pointer;
   }
   img {
-    margin-top: 110px;
-    width: 140px;
-    height: 35px;
-    animation: slide-bottom 0.8s ease-in-out both;
+    margin-top: 40px;
+    width: 232px;
+    height: 160px;
+    animation: slide-bottom 1.0s ease-in-out both;
     animation-name: slide-bottom;
   }
 
@@ -65,7 +65,7 @@ export const Tela = styled.div`
     margin-top: 10px;
     background-color: #CDF2D6;
     color: #3D3D3D;
-    width: 300px;
+    width: 225px;
     height: 45px;
     border: none;
     border-radius: 5px;
