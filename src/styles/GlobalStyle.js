@@ -1,6 +1,6 @@
-import {createGlobalStyle}from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,7 +18,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: 'El Messiri', sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'El Messiri', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -47,6 +48,9 @@ table {
 strong {
 	font-weight: bold;
 }
-`
+a{
+	text-decoration: none;
+}
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
