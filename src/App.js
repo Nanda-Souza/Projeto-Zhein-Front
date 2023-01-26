@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/TelaLogin/TelaLogin";
 import Pagamento from "./Pages/TelaPagamento/TelaPagamento";
+import Carrinho from "./Pages/TelaCarrinho/CarrinhoPages"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         {/* <Route path="/cadastro" element={}/>
         <Route path="/home" element={}/>
         <Route path="/:id_do_produto" element={}/> */}
+        <Route path="/carrinho" element={<Carrinho />}/>
         <Route path="/pagamento" element={<Pagamento />} />
         {/* <Route path="/sucesso" element={}/> */}
       </Routes>
