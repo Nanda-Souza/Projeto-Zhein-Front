@@ -11,9 +11,8 @@ export const Form = styled.form`
     height: 45px;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
-    font-family: 'El Messiri', sans-serif;
+    font-family: "El Messiri", sans-serif;
   }
-
 `;
 
 export const Tela = styled.div`
@@ -24,7 +23,7 @@ export const Tela = styled.div`
   align-items: center;
 
   p {
-    color: #3D3D3D;
+    color: #3d3d3d;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
@@ -36,7 +35,7 @@ export const Tela = styled.div`
     margin-top: 40px;
     width: 232px;
     height: 160px;
-    animation: slide-bottom 1.0s ease-in-out both;
+    animation: slide-bottom 1s ease-in-out both;
     animation-name: slide-bottom;
   }
 
@@ -63,8 +62,8 @@ export const Tela = styled.div`
 
   button {
     margin-top: 10px;
-    background-color: #CDF2D6;
-    color: #3D3D3D;
+    background-color: #cdf2d6;
+    color: #3d3d3d;
     width: 225px;
     height: 45px;
     border: none;
