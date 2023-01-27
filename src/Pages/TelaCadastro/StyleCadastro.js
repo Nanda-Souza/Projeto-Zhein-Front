@@ -70,3 +70,4 @@ export const Tela = styled.div`
     cursor: pointer;
   }
 `;
+
