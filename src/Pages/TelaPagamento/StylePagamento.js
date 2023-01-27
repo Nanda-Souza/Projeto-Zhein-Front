@@ -58,13 +58,14 @@ export const Item = styled.div`
 export const Total = styled.div`
 width: 340px;
   height: 27px;
-  background-color: #ffffff;
+  background-color: #D1E1F9;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom:20px;
   border-radius: 3px;
   p{
     margin-left: 8px;
