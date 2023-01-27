@@ -23,6 +23,7 @@ export default function Login() {
     try{    
 
     await axios.post(`${process.env.REACT_APP_API_URL}/cadastro`, dadosCadastro)
+    console.log(process.env.REACT_APP_API_URL)
     
     } catch (err){
         if (err.response?.status === 422){
