@@ -5,6 +5,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+  outline: none;
   input {
     margin-top: 10px;
     width: 300px;
@@ -58,16 +59,25 @@ export const Tela = styled.div`
       transform: translateY(100px);
     }
   }
-
-  button {
+`
+  export const Registro = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
     background-color: #cdf2d6;
-    color: #3d3d3d;
     width: 225px;
     height: 45px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-  }
-`;
-
+    outline: none;
+    button {
+      outline: none;
+      border: none;
+      background-color: #cdf2d6;
+      width: 225px;
+      height: 45px;
+      border-radius: 5px;
+      color: #3d3d3d;
+    }
+`
