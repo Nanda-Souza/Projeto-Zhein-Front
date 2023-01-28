@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Assets/logo.png";
-import { Tela, Form} from "./StyleCadastro";
+import { Tela, Form, Registro } from "./StyleCadastro";
 import { Container } from "../../Components/Container";
 import { useState } from "react";
-//import { ThreeDots } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 
 export default function Login() {
-  //const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -18,7 +18,7 @@ export default function Login() {
     e.preventDefault()
 
     const dadosCadastro = {nome, email, senha, confirmeSenha}
-    //setLoading(true)
+    setLoading(true)
 
     try{    
 
@@ -33,11 +33,11 @@ export default function Login() {
         } else {
             alert("Não foi possível fazer o cadastro, favor tentar novamente mais tarde!")
         }        
-        //setLoading(false)
+        setLoading(false)
         return;
     }    
     
-    //setLoading(false)
+    setLoading(false)
     navigate("/")
     
     
@@ -81,10 +81,20 @@ export default function Login() {
             onChange={(e) => setConfirmeSenha(e.target.value)}
           />
 
-
+         <Registro isLoading={loading} >
+                {loading ? (
+                    <ThreeDots 
+                        height="40"
+                        width="40"
+                        color="#ffffff"
+                    />
+                ):(
           <button type="submit">
             <strong>Cadastrar</strong>
           </button>
+          )}
+            
+          </Registro>
           
 
     </Form>
