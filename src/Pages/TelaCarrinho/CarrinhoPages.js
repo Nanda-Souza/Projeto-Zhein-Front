@@ -24,7 +24,7 @@ export default function CarrinhoPages(){
         promise.then((res) => {
         let total = 0;
         res.data.map((item) => {
-         total += item.preco
+         return total += item.preco
         });
         setSoma(total);
         setListaCarrinho(res.data);
