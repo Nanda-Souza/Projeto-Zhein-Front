@@ -33,7 +33,7 @@ export default function Home(){
                 {produtos?.map((produtos) => (
                     <ProdutosSpace key={produtos._id}> 
                 
-                    <img src={produtos.imagem} />
+                    <img src={produtos.imagem} alt=""/>
                     <p>{produtos.nome}</p>   
     
                  </ProdutosSpace>
