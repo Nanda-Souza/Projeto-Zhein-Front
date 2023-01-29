@@ -2,31 +2,35 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Assets/logo.png";
 import { Tela, Form } from "./StyleLogin";
 import { Container } from "../../Components/Container";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "../../Context/UserContext";
+import axios from "axios";
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
+  const { setUsuarioLogado } = useContext(UserContext);
 
-  //   function login(e) {
-  //     e.preventDefault();
-  //     const body = { email, senha };
-  //     const promise = axios.post(`${process.env.REACT_APP_API_URL}/`, body);
-  //     promise.then((res) => {
-  //       // console.log(res.data)
-  //       alert("Login realizado com sucesso! :)");
-  //       setUsuarioLogado(res.data);
-  //       navigate("/home");
-  //     });
-  //     promise.catch((err) => alert(err.response.data.message));
-  //   }
+    function login(e) {
+      e.preventDefault();
+      const body = { email, senha };
+      const promise = axios.post(`${process.env.REACT_APP_API_URL}/`, body);
+      promise.then((res) => {
+        // console.log(res.data)
+        alert("Login realizado com sucesso! :)");
+        setUsuarioLogado(res.data);
+        navigate("/home");
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    }
 
   return (
     <Container>
       <Tela>
         <img src={logo} alt="logo" />
-        <Form>
+        <Form onSubmit={login}>
           <input
             type="email"
             placeholder="E-mail"
