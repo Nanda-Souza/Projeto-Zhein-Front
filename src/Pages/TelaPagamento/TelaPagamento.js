@@ -16,7 +16,7 @@ export default function Pagamento() {
   function pagamento(e) {
     e.preventDefault();
     const body = { nome, cartao };
-    const promise = axios.post(`${process.env.REACT_APP_API_URL}/`, body);
+    const promise = axios.post(`${process.env.REACT_APP_API_URL}/pagamento`, body);
     promise.then((res) => {
       navigate("/sucesso");
     });

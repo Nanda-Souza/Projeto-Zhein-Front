@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import seta from "../Assets/setinha.png";
 import sacola from "../Assets/sacola.png";
+import { Link } from "react-router-dom";
 
-//Esse header é aquele que contem a sacola, a logo e o botão de voltar para a página anterior//
 
 export default function Header() {
   return (
     <Cabecalho>
-      <img src={seta} alt="voltar" className="seta"/>
+      <Link to="/home">
+        <img src={seta} alt="voltar" className="seta" />
+      </Link>
       <h1>Zhein</h1>
-      <img src={sacola} alt="sacola" className="sacola"/>
+      <Link to="/carrinho">
+        <img src={sacola} alt="sacola" className="sacola" />
+      </Link>
     </Cabecalho>
   );
 }
@@ -26,14 +30,12 @@ export const Cabecalho = styled.div`
   .seta {
     width: 34px;
     height: 34px;
-    margin-left:10px;
-    
+    margin-left: 10px;
   }
-  .sacola{
-    width:30px;
+  .sacola {
+    width: 30px;
     height: 28px;
     margin-right: 10px;
-
   }
   h1 {
     font-family: "El Messiri";

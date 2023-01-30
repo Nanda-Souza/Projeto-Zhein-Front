@@ -54,7 +54,7 @@ export default function IdProdutos(){
         const promisse = axios.post(`${process.env.REACT_APP_API_URL}/carrinho`, body, config);
 
         promisse.then(() => {
-            alert("Intem adicionado ao carrinho");
+            alert("Item adicionado ao carrinho");
             navegate("/home");
         });
 
