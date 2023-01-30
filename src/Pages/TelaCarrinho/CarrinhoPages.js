@@ -44,7 +44,7 @@ export default function CarrinhoPages(){
 
             axios.delete(`${process.env.REACT_APP_API_URL}/carrinho/${index._id}`).then((res) => {
                 console.log(res.data);
-                alert("Intem deletado com sucesso!!!");
+                alert("Item deletado com sucesso!!!");
             }).catch((err) => {
                 alert(err.response.data.message);
             });
