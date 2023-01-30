@@ -54,12 +54,12 @@ export default function IdProdutos(){
         const promisse = axios.post(`${process.env.REACT_APP_API_URL}/carrinho`, body, config);
 
         promisse.then(() => {
-            alert("Item adicionado ao carrinho");
-            navegate("/home");
+            alert("Intem adicionado ao carrinho");
+            navegate("/carrinho");
         });
 
         promisse.catch((err) => {
-            alert(err.response.data.message)
+            console.log(err.response.data.message)
         })
     }
     return(
@@ -75,10 +75,10 @@ export default function IdProdutos(){
             </CaixaImg>
             <CaixaSubTotal>
                 <p>
-                    Subtotal:
+                    Preço:
                 </p>
                 <p>
-                    R$ {Number(preco).toFixed(2)}
+                    R$ {preco}
                 </p>
             </CaixaSubTotal>
             <CaixaDescricao>
