@@ -14,6 +14,7 @@ export const Buttons = styled.div`
                 text-decoration: none;
                 margin-bottom: 66px;
                 border-radius: 10px;
+                border: none;
 
                 p{
                     font-family: 'El Messiri';
