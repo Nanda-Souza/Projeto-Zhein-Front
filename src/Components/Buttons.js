@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 
-export const Buttons = styled.button`
+export const Buttons = styled.div`
+                button{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -18,5 +19,6 @@ export const Buttons = styled.button`
                     font-family: 'El Messiri';
                     font-size: 16px;
                     font-weight: 400;
+                }
                 }
 `;

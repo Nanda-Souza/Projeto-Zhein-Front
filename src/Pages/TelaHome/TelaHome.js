@@ -3,6 +3,7 @@ import { TelaHome, ProdutosSpace, TelaProdutos } from "./StyleHome"
 import HeaderHome from "./HeaderHome"
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home(){
     const [produtos, setProdutos] = useState(undefined)
@@ -31,12 +32,14 @@ export default function Home(){
 
              <TelaProdutos>
                 {produtos?.map((produtos) => (
-                    <ProdutosSpace key={produtos._id}> 
+                    <Link to={`/${produtos._id}`}>
+                        <ProdutosSpace key={produtos._id}> 
                 
-                    <img src={produtos.imagem} alt=""/>
-                    <p>{produtos.nome}</p>   
-    
-                 </ProdutosSpace>
+                            <img src={produtos.imagem} alt=""/>
+                            <p>{produtos.nome}</p>   
+
+                        </ProdutosSpace>
+                    </Link>
 
                 ))}
 
