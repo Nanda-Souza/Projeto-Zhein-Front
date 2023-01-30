@@ -83,7 +83,10 @@ export default function CarrinhoPages(){
                     Subtotal:
                 </p>
                 <p>
-                    R$ {soma}
+                    {soma.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                    }) }
                 </p>
             </CaixaSubTotal>
             <Buttons>
