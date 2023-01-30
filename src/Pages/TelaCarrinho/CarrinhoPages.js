@@ -5,13 +5,14 @@ import { Buttons } from "../../Components/Buttons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import lixo from "../../Assets/trash.png";
+import { useNavigate } from "react-router";
 
 export default function CarrinhoPages(){
     const [listaCarrinho, setListaCarrinho] = useState([]);
-    const [soma, setSoma] = useState("00.00");
-    const token = "93653d4f-9b9e-4c25-aea6-7785ec5a7cfa"
+    const [soma, setSoma] = useState("");
+    const token = "93653d4f-9b9e-4c25-aea6-7785ec5a7cfa";
 
-    console.log(listaCarrinho);
+    const navegate = useNavigate();
 
     useEffect(() => {
         const config = {
@@ -23,47 +24,35 @@ export default function CarrinhoPages(){
         const promise = axios.get(`${process.env.REACT_APP_API_URL}/carrinho`, config);
         promise.then((res) => {
         let total = 0;
+        console.log(res.data);
         res.data.map((item) => {
-         return total += item.preco
+         return total += Number(item.preco);
         });
+        console.log(total);
         setSoma(total);
         setListaCarrinho(res.data);
         });
         promise.catch((err) => console.log(err.response.data.message));
         }, []);
 
-    // useEffect(() => {
-    //     axios.get(`${process.env.REACT_APP_API_URL}/carrinho`, {headers: {
-    //         Authorization: `Bearer ${token}`,
-    //     }
-    // }).then((res) => {
-    //         console.log(res.data);
-    //         setListaCarrinho(res.data);
-    //     }).catch((err) =>{
-    //         alert(err.response.data);
-    //     })},[]);
-
         if(listaCarrinho === undefined){
             return <div>Carregando...</div>
         }
 
-        function deletarProduto( indice, preco){
-            indice.preventDefault();
+        function DeletarProduto(index){
+            console.log(index._id);
 
-            // useEffect(() => {
-            //     if(soma > preco){
-            //         setSoma(soma-preco);
-            //     } else{
-            //         setSoma(preco-soma);
-            //     }
-            // })
-
-            axios.delete(`${process.env.REACT_APP_API_URL}/carrinho/${indice}`).then(() => {
+            axios.delete(`${process.env.REACT_APP_API_URL}/carrinho/${index._id}`).then((res) => {
+                console.log(res.data);
                 alert("Intem deletado com sucesso!!!");
             }).catch((err) => {
                 alert(err.response.data.message);
             });
         };
+
+        function ProximaFase(){
+            return navegate("/pagamento");
+        }
     return(
         <Container>
             <Header/>
@@ -81,12 +70,12 @@ export default function CarrinhoPages(){
                             {l.nome}
                         </p>
                         <p>
-                            R${Number(l.preco).toFixed(2)}
+                            R${l.preco}
                         </p>
-                        <button onClick={() => deletarProduto(i, l.preco)}>
+                        <button onClick={() => DeletarProduto(l)}>
                             <img src={lixo} alt="lixo"/>
                         </button>
-                    </Items>)};
+                    </Items>)}
                 </ListaDoCarrinho>)}
             </Lista>
             <CaixaSubTotal>
@@ -94,13 +83,15 @@ export default function CarrinhoPages(){
                     Subtotal:
                 </p>
                 <p>
-                    R$ {Number(soma).toFixed(2)}
+                    R$ {soma}
                 </p>
             </CaixaSubTotal>
             <Buttons>
-                <p>
-                    Fechar pedido
-                </p>
+                <button onClick={ProximaFase}>
+                    <p>
+                        Fechar pedido
+                    </p>
+                </button>
             </Buttons>
         </Container>
     )
@@ -158,19 +149,30 @@ const Lista = styled.div`
 `;
 
 const ListaDoCarrinho = styled.div`
-            display: flex;
             flex-direction: collum;
 `;
 
 const Items = styled.div`
+        margin-top: 14px;
+        margin-bottom: 14px;
         display: flex;
-        flex-direction: row;
         width: 331px;
         height: 62px;
         background-color: #ffffff;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
+        border-radius: 10px;
+
+        button{
+            width: 32px;
+            height: 32px;
+
+            img{
+                width: 16px;
+                height: 16px;
+            }
+        }
 
         img{
             width: 63px;
