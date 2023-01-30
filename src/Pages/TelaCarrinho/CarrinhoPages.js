@@ -13,7 +13,6 @@ export default function CarrinhoPages() {
   const [soma, setSoma] = useState("");
   const { usuarioLogado } = useContext(UserContext);
 
-  console.log(usuarioLogado);
 
   const navigate = useNavigate();
 
@@ -29,13 +28,11 @@ export default function CarrinhoPages() {
       config
     );
     promise.then((res) => {
-      console.log(res.data);
       let total = 0;
 
       res.data.map((item) => {
         return (total += Number(item.preco));
       });
-      console.log(total);
       setSoma(total);
       setListaCarrinho(res.data);
     });
