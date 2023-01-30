@@ -3,8 +3,9 @@ import Header from "../../Components/Header.js";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router";
 import { Buttons } from "../../Components/Buttons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import UserContext from "../../Context/UserContext";
 
 
 export default function IdProdutos(){
@@ -12,26 +13,31 @@ export default function IdProdutos(){
     const [url, setUrl] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState("");
-
+    const [id, setId] = useState("")
+    const { usuarioLogado } = useContext(UserContext);
     const {id_do_produto} = useParams();
-    const token = "93653d4f-9b9e-4c25-aea6-7785ec5a7cfa";
+    const navigate = useNavigate();
 
-    const navegate = useNavigate();
+
+    console.log(usuarioLogado.token)
+
 
     useEffect(() =>{
         const config = {
             headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${usuarioLogado.token}`,
             },
             };
 
             const promise = axios.get(`${process.env.REACT_APP_API_URL}/produto/${id_do_produto}`, config);
 
             promise.then((res) => {
+                console.log(res)
                 setNome(res.data.nome);
                 setUrl(res.data.imagem);
                 setDescricao(res.data.descricao);
                 setPreco(res.data.preco);
+                setId(res.data._id)
 
 
             })
@@ -45,21 +51,24 @@ export default function IdProdutos(){
 
         const config = {
             headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${usuarioLogado.token}`,
             },
             };
 
-        const body = {url, nome, preco};
+        const body = { nome, preco, id, url };
 
-        const promisse = axios.post(`${process.env.REACT_APP_API_URL}/carrinho`, body, config);
+        console.log({body})
 
-        promisse.then(() => {
-            alert("Intem adicionado ao carrinho");
-            navegate("/carrinho");
+        const promise = axios.post(`${process.env.REACT_APP_API_URL}/carrinho`, body, config);
+        
+
+        promise.then(() => {
+            alert("Item adicionado ao carrinho");
+            navigate("/carrinho");
         });
 
-        promisse.catch((err) => {
-            console.log(err.response.data.message)
+        promise.catch((err) => {
+            console.log(err.response.data)
         })
     }
     return(
