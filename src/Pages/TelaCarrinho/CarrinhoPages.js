@@ -112,7 +112,6 @@ const CaixaTitulo = styled.div`
   align-items: center;
   background-color: #cdf2d6;
   border-radius: 10px;
-
   p {
     font-family: "El Messiri";
     font-weight: 400;
@@ -167,22 +166,18 @@ const Items = styled.div`
   align-items: center;
   padding: 10px;
   border-radius: 10px;
-
   button {
     width: 32px;
     height: 32px;
-
     img {
       width: 16px;
       height: 16px;
     }
   }
-
   img {
     width: 63px;
     height: 47px;
   }
-
   p {
     font-family: "El Messiri";
     font-size: 14px;
