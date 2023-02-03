@@ -2,15 +2,16 @@ import { Container } from "../../Components/Container"
 import { TelaHome, ProdutosSpace, TelaProdutos } from "./StyleHome"
 import HeaderHome from "./HeaderHome"
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../Context/UserContext";
 
 export default function Home(){
     const [produtos, setProdutos] = useState(undefined)
-    const token = "2d3d6687-90c6-4f03-a312-e4705e4017ad"
+    const { usuarioLogado } = useContext(UserContext);
     const config = {
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${usuarioLogado.token}`,
         },
         };
 
@@ -20,7 +21,7 @@ export default function Home(){
         
         const promise = axios.get(URL, config);
         promise.then((res) => setProdutos(res.data));
-        promise.then(res => console.log(res.data))
+        promise.catch(error => console.log(error.data.message))
       }, []);     
 
 
