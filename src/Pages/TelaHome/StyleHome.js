@@ -40,7 +40,7 @@ export const TelaProdutos = styled.div`
 
 export const ProdutosSpace = styled.div`
 width: 163px;
-height: 230px
+height: 230px;
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -49,12 +49,12 @@ justify-content: center;
 background-color: #FFFFFF;
 border-radius: 5px;
 box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
-margin-left: 22px;
+margin-left: 15px;
 margin-bottom: 12px;
 img {
-    width: 133x;
+    width: 133px;
     height: 169px;
-    margin-left: 19px;
+    /* margin-left: 19px; */
     margin-top:19px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
